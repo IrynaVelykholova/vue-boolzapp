@@ -12,7 +12,7 @@
 body {
     height: 100vh;
     overflow: hidden;
-    background-color: #d9dbd4;
+    background-color: #d9dbd4 !important;
 }
 
 body::after {
@@ -39,11 +39,11 @@ body::after {
 /* Sezione sofia */
 .sofia {
     height: 60px;
-    background-color: #eaeaea;
+    background-color: white !important;
 }
 
 .sofia i {
-    width: 24px;
+    width: 25px;
     text-align: center;
     color: #b1b1b1;
 }
@@ -67,6 +67,10 @@ body::after {
     aspect-ratio: 1/1;
 }
 
+.notifications i {
+    color: #8edafc;
+}
+
 .text-notification {
     font-size: .8rem;
 }
@@ -77,7 +81,7 @@ body::after {
 }
 
 /* Sezione Barra di Ricerca */
-.search {
+.search-section {
     height: 50px;
 }
 
@@ -101,5 +105,42 @@ body::after {
 /* RIGHT */
 .right-container {
     flex-grow: 1;
+    flex-direction: column;
+}
+
+.body-right-container {
+    overflow: auto;
+    flex-grow: 1;
     background-image: url("../img/mine.jpg");
+}
+
+.scrivi-mex {
+    height: 60px;
+    background-color: white !important;
+    flex-shrink: 0;
+}
+
+/* user */
+.user-chat-info {
+    height: 60px;
+    background-color: white !important;
+    flex-shrink: 0;
+}
+
+.icons i {
+    width: 25px;
+    text-align: center;
+    color: #b1b1b1;
+}
+
+/* BODY-RIGHT-CONTAINER */
+.card {
+    width: 40%;
+}
+.card-sent {
+    background-color: rgb(213, 249, 186) !important;
+}
+
+.scrivi-mex i {
+    color: rgb(107, 115, 118);
 }
