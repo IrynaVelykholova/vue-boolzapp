@@ -1,0 +1,105 @@
+:root {
+    --text-gray: gray;
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-color: #d9dbd4;
+}
+
+body::after {
+    background-color: #009688;
+    content: "";
+    height: 130px;
+    width: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+.container {
+    height: calc(100% - 50px);
+}
+
+/* LEFT */
+.left-container {
+    width: 30%;
+    border-right: 1px solid #d6d6d6;
+}
+
+/* Sezione sofia */
+.sofia {
+    height: 60px;
+    background-color: #eaeaea;
+}
+
+.sofia i {
+    width: 24px;
+    text-align: center;
+    color: #b1b1b1;
+}
+
+.avatar {
+    width: 60px;
+}
+
+.avatar img {
+    width: 50px;
+}
+
+/* Sezione notifiche */
+.notifications {
+    background-color: #8edafc;
+    height: 70px;
+}
+
+.notifications-icon {
+    width: 40px;
+    aspect-ratio: 1/1;
+}
+
+.text-notification {
+    font-size: .8rem;
+}
+
+.text-gray {
+    color: var(--text-gray);
+    font-size: .7rem;
+}
+
+/* Sezione Barra di Ricerca */
+.search {
+    height: 50px;
+}
+
+/* Sezione chat */
+.chat-section {
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.chat {
+    height: 70px;
+    background-color: rgb(233, 235, 235);
+
+}
+
+.info-user {
+    font-size: .75rem;
+    color: gray;
+}
+
+/* RIGHT */
+.right-container {
+    flex-grow: 1;
+    background-image: url("../img/mine.jpg");
+}
