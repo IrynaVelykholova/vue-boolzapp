@@ -97,17 +97,15 @@
                 </section>
                 <div class="right-container d-flex">
                     <!-- USER -->
-                    <div class="user-chat-info d-flex justify-content-between align-items-center"
-                        v-for="contatto in listaContatti"
-                        v-show="(contattoCorrente === contatto)">
+                    <div class="user-chat-info d-flex justify-content-between align-items-center">
 
                         <div class="p-1 d-flex justify-content-between align-items-center">
                             <div class="d-flex">
                                 <div class="avatar">
-                                    <img :src="`./img/avatar${contatto.avatar}.jpg`" class="rounded-circle" alt="avatar">
+                                    <img :src="`./img/avatar${contattoCorrente.avatar}.jpg`" class="rounded-circle" alt="avatar">
                                 </div>
                                 <div>
-                                    <div class="name-chat">{{ contatto.name }}</div>
+                                    <div class="name-chat">{{ contattoCorrente.name }}</div>
                                     <div class="info-user">ultimo messaggio inviato oggi alle 12:00</div>
                                 </div>
                             </div>

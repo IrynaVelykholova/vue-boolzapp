@@ -75,21 +75,20 @@ Vue.createApp({
                 },
             ],
             //creo indice del contatto
-            contattoCorrente : null,
+            contattoCorrente : 0,
         } 
     },
 methods: {
     //creo funzione che al click riconosce il mio contatto
-    userClick(singoloContatto) {
-        this.contattoCorrente = singoloContatto;
-        console.log(singoloContatto);
+    userClick(contatto) {
+        this.contattoCorrente = contatto;
+        console.log(this.contattoCorrente);
     }
     },
 mounted() {
 
 },
 }).mount("#app");
-
 
 
 ``
