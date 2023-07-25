@@ -93,13 +93,12 @@ body::after {
 
 .chat {
     height: 70px;
-    background-color: rgb(233, 235, 235);
+    
 
 }
 
 .info-user {
     font-size: .75rem;
-    color: gray;
 }
 
 /* RIGHT */

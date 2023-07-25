@@ -3,7 +3,7 @@
 Vue.createApp({
     data() {
         return {
-            contatti: [
+            listaContatti: [
                 {
                 name: "Michele",
                 avatar: "_1",
@@ -74,12 +74,22 @@ Vue.createApp({
                 ],
                 },
             ],
-        }
+            //creo indice del contatto
+            contattoCorrente : null,
+        } 
     },
 methods: {
-
+    //creo funzione che al click riconosce il mio contatto
+    userClick(singoloContatto) {
+        this.contattoCorrente = singoloContatto;
+        console.log(singoloContatto);
+    }
     },
 mounted() {
 
 },
 }).mount("#app");
+
+
+
+``

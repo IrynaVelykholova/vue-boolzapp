@@ -67,13 +67,21 @@
 
                     <!-- Sezione Contatti -->
                     <div class="chat-section">
-                        <div class="chat p-1 d-flex justify-content-between align-items-center">
+                        <!-- cirlo for della mia lista contatti 
+                            sotto collego funzione click allo user (riconosce indice cliccato)
+                            al click cambia colore allo sfondo-->
+                        <div class="chat p-1 d-flex justify-content-between align-items-center"
+                            v-for="contatto in listaContatti" 
+                            @click="userClick(contatto)"
+                            :style=" (contattoCorrente === contatto ? 'background-color: #e9ebeb;' : '')"> 
                             <div class="d-flex">
                                 <div class="avatar">
-                                    <img src="./img/avatar_1.jpg" class="rounded-circle" alt="avatar">
+                                    <!-- collego l'immagine -->
+                                    <img :src="`img/avatar${contatto.avatar}.jpg`" class="rounded-circle" alt="avatar">
                                 </div>
-                                <div>
-                                    <div class="name-chat">Michele</div>
+                                <div>  
+                                    <!-- collego il nome -->
+                                    <div class="name-chat">{{ contatto.name }}</div>
                                     <div class="info-user">ultimo messaggio inviato</div>
                                 </div>
                             </div>
@@ -82,39 +90,6 @@
                                 <div class="info-user me-1">12:00</div>
                             </div>
                         </div>
-
-                        <div class="chat p-1 d-flex justify-content-between align-items-center">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="./img/avatar_1.jpg" class="rounded-circle" alt="avatar">
-                                </div>
-                                <div>
-                                    <div class="name-chat">Michele</div>
-                                    <div class="info-user">ultimo messaggio inviato</div>
-                                </div>
-                            </div>
-
-                            <div class="h-100">
-                                <div class="info-user me-1">12:00</div>
-                            </div>
-                        </div>
-
-                        <div class="chat p-1 d-flex justify-content-between align-items-center">
-                            <div class="d-flex">
-                                <div class="avatar">
-                                    <img src="./img/avatar_1.jpg" class="rounded-circle" alt="avatar">
-                                </div>
-                                <div>
-                                    <div class="name-chat">Michele</div>
-                                    <div class="info-user">ultimo messaggio inviato</div>
-                                </div>
-                            </div>
-
-                            <div class="h-100">
-                                <div class="info-user me-1">12:00</div>
-                            </div>
-                        </div>
-
 
                     </div>
 
@@ -122,15 +97,17 @@
                 </section>
                 <div class="right-container d-flex">
                     <!-- USER -->
-                    <div class="user-chat-info d-flex justify-content-between align-items-center">
+                    <div class="user-chat-info d-flex justify-content-between align-items-center"
+                        v-for="contatto in listaContatti"
+                        v-show="(contattoCorrente === contatto)">
 
                         <div class="p-1 d-flex justify-content-between align-items-center">
                             <div class="d-flex">
                                 <div class="avatar">
-                                    <img src="./img/avatar_1.jpg" class="rounded-circle" alt="avatar">
+                                    <img :src="`./img/avatar${contatto.avatar}.jpg`" class="rounded-circle" alt="avatar">
                                 </div>
                                 <div>
-                                    <div class="name-chat">Michele</div>
+                                    <div class="name-chat">{{ contatto.name }}</div>
                                     <div class="info-user">ultimo messaggio inviato oggi alle 12:00</div>
                                 </div>
                             </div>
@@ -171,6 +148,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     
                     
@@ -189,8 +167,9 @@
                 </div>
             </main>
         </div>
+
+
     </div>
-    
     <script src="main.js"></script>
 </body>
 </html>
