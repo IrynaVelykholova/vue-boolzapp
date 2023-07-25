@@ -120,48 +120,46 @@
 
                         <!-- BODY RIGHT CONTAINER -->
                         <div class="body-right-container">
-                            <div class="mt-5 me-5 d-flex justify-content-end">
-                                <div class="card card-sent">
-                                    <p class="ms-3 mt-2 mb-0">Hai portato a spasso il cane?</p>
+
+                            <div class="mt-5 me-5 d-flex flex-column">
+                                <!-- ciclo for tra i messaggi
+                                    se l'ho mandato io allora verde e a destra
+                                    se manda lui bianco a sinistra-->
+                                <div class="card mb-2"
+                                    v-for="testo in contattoCorrente.messages"
+                                    :class="testo.status === 'sent' ? 'card-sent' : 'card-received'">
+                                    
+                                    <!-- collego il messaggio del contatto corrente -->
+                                    <p class="ms-3 mt-2 mb-0">
+                                        {{testo.message}}</p>
+
                                     <div class="d-flex justify-content-end">
                                         <p style="font-size: xx-small; margin-bottom: 0;">15:30</p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="mt-2 me-5 d-flex justify-content-end">
-                                <div class="card card-sent">
-                                    <p class="ms-3 mt-2 mb-0">Ricordati di stendere i panni</p>
-                                    <div class="d-flex justify-content-end">
-                                        <p style="font-size: xx-small; margin-bottom: 0;">15:30</p>
-                                    </div>
+                        <!-- Scrivi messaggio -->
+                        <div class="scrivi-mex">
+                            <div class="input-group mb-1 mt-1">
+                                <button class="btn btn-light" type="button" id="button-addon1"><i class="fa-regular fa-face-smile ms-3"></i></button>
+                                <!-- collego la funzione del messaggio al mio imput 
+                                    uso keyuo.enter per l'invio del messaggio-->
+                                <input type="text" class="form-control form-control-lg" 
+                                        placeholder="Scrivi un messaggio" aria-label="" 
+                                        aria-describedby="basic-addon1"
+                                        v-model="messaggioInviato.message"
+                                        @keyup.enter="invioMessaggio(contattoCorrente.messages)">
+                                
+                                <div class="d-flex justify-content-center align-items-center ms-3 me-3">
+                                    <i class="fa-solid fa-microphone fa-xl"></i>
                                 </div>
                             </div>
-
-                            <div class="mt-2 me-5">
-                                <div class="card ms-5">
-                                    <p class="ms-3 mt-2 mb-0">Tutto fatto</p>
-                                    <div class="d-flex justify-content-end">
-                                        <p style="font-size: xx-small; margin-bottom: 0;">16:15</p>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+                </div>
                     
                     
-                    <!-- Scrivi messaggio -->
-                    <div class="scrivi-mex">
-                        <div class="input-group mb-1 mt-1">
-                            <button class="btn btn-light" type="button" id="button-addon1"><i class="fa-regular fa-face-smile ms-3"></i></button>
-                            <input type="text" class="form-control form-control-lg" placeholder="Scrivi un messaggio" aria-label="" aria-describedby="basic-addon1">
-                            
-                            <div class="d-flex justify-content-center align-items-center ms-3 me-3">
-                                <i class="fa-solid fa-microphone fa-xl"></i>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </main>
         </div>

@@ -74,8 +74,20 @@ Vue.createApp({
                 ],
                 },
             ],
-            //creo indice del contatto
-            contattoCorrente : 0,
+            //creo contatto corrente all'avvio pagina
+            contattoCorrente : null,
+
+            //mio messaggio
+            messaggioInviato: {
+                message: "",
+                status: "sent",
+            },
+
+            //risposta
+            messaggioRicevuto: {
+                message: "ok",
+                status: "received",
+            },
         } 
     },
 methods: {
@@ -83,10 +95,30 @@ methods: {
     userClick(contatto) {
         this.contattoCorrente = contatto;
         console.log(this.contattoCorrente);
-    }
     },
-mounted() {
 
+    invioMessaggio(containerMessaggio){
+        //clone per eliminare la reattività
+        const inviato = {...this.messaggioInviato};
+
+        //push messaggio inviato
+        containerMessaggio.push(inviato);
+
+        //clone della risposta 
+        const risposta = {...this.messaggioRicevuto};
+
+        //push e timer risposta
+        setTimeout(function() {
+            containerMessaggio.push(risposta)
+        }, 1000)
+            
+        //svuoto input del messaggio
+        this.messaggioInviato.message = "" 
+        },
+    },
+//con questa funzione do un valore all'avvio della pagina
+beforeMount() {
+    this.contattoCorrente = this.listaContatti[0]
 },
 }).mount("#app");
 

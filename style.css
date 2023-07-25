@@ -138,6 +138,12 @@ body::after {
 }
 .card-sent {
     background-color: rgb(213, 249, 186) !important;
+    align-self: end;
+}
+
+.card-received {
+    background-color: white;
+    align-self: start;
 }
 
 .scrivi-mex i {
