@@ -119,7 +119,14 @@ methods: {
         //svuoto input del messaggio
         this.messaggioInviato.message = "" 
         },
-        
+
+        eliminaMessaggio(i) {
+            // indice del messaggio del contatto
+            const indiceMessaggio = this.listaContatti.indexOf(this.contattoCorrente);
+
+            // elimino il messaggio con funzione splice
+            this.listaContatti[indiceMessaggio].messages.splice(i, 1)
+        },
     },
 //con questa funzione do un valore all'avvio della pagina
 beforeMount() {

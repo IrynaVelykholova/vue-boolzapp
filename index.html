@@ -71,11 +71,13 @@
                         <!-- cirlo for della mia lista contatti 
                             sotto collego funzione click allo user (riconosce indice cliccato)
                             al click cambia colore allo sfondo-->
+                            <!-- riga 77 richiamo la mia variabile ricerca -->
                         <div class="chat p-1 justify-content-between align-items-center"
                             v-for="contatto in listaContatti" 
                             :class="((contatto.name).toLowerCase().includes((ricerca).toLowerCase())) ? 'd-flex' : 'd-none'"
                             @click="userClick(contatto)"
                             :style=" (contattoCorrente === contatto ? 'background-color: #e9ebeb;' : '')"> 
+                            
                             <div class="d-flex">
                                 <div class="avatar">
                                     <!-- collego l'immagine -->
@@ -128,12 +130,31 @@
                                     se l'ho mandato io allora verde e a destra
                                     se manda lui bianco a sinistra-->
                                 <div class="card mb-2"
-                                    v-for="testo in contattoCorrente.messages"
+                                    v-for="(testo, i) in contattoCorrente.messages"
                                     :class="testo.status === 'sent' ? 'card-sent' : 'card-received'">
                                     
                                     <!-- collego il messaggio del contatto corrente -->
-                                    <p class="ms-3 mt-2 mb-0">
-                                        {{testo.message}}</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="ms-3 mt-2 mb-0">
+                                            {{testo.message}}
+                                        </p>
+                                        <!-- creo il menù a tendina bootstap  -->
+                                        <div class="dropdown">
+                                            <button class="btn btn-link hide-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa-solid fa-chevron-down" style="color: #afacab;"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a class="dropdown-item" href="#">Message info</a>
+                                                </li>
+                                                <!-- collego la mia funzione per eliminare il messaggio -->
+                                                <li>
+                                                    <a class="dropdown-item" href="#" @click="eliminaMessaggio(i)">Delete message</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
 
                                     <div class="d-flex justify-content-end">
                                         <p style="font-size: xx-small; margin-bottom: 0;">15:30</p>
