@@ -61,7 +61,8 @@
 
                             <input type="search" class="form-control" 
                                     placeholder="Cerca o inizia una nuova chat"
-                                    aria-label="Search" aria-describedby="search-addon"/>
+                                    aria-label="Search" aria-describedby="search-addon"
+                                    v-model="ricerca"/>
                         </div>
                     </div>
 
@@ -70,8 +71,9 @@
                         <!-- cirlo for della mia lista contatti 
                             sotto collego funzione click allo user (riconosce indice cliccato)
                             al click cambia colore allo sfondo-->
-                        <div class="chat p-1 d-flex justify-content-between align-items-center"
+                        <div class="chat p-1 justify-content-between align-items-center"
                             v-for="contatto in listaContatti" 
+                            :class="((contatto.name).toLowerCase().includes((ricerca).toLowerCase())) ? 'd-flex' : 'd-none'"
                             @click="userClick(contatto)"
                             :style=" (contattoCorrente === contatto ? 'background-color: #e9ebeb;' : '')"> 
                             <div class="d-flex">
@@ -166,6 +168,7 @@
 
 
     </div>
+    
     <script src="main.js"></script>
 </body>
 </html>

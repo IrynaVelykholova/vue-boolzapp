@@ -88,6 +88,10 @@ Vue.createApp({
                 message: "ok",
                 status: "received",
             },
+
+            //ricerca
+            ricerca: "",
+            
         } 
     },
 methods: {
@@ -115,6 +119,7 @@ methods: {
         //svuoto input del messaggio
         this.messaggioInviato.message = "" 
         },
+        
     },
 //con questa funzione do un valore all'avvio della pagina
 beforeMount() {
